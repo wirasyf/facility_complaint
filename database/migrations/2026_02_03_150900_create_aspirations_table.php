@@ -16,7 +16,7 @@ return new class extends Migration
             $table->enum('status', ['Menunggu', 'Proses', 'Selesai'])->default('Menunggu');
             $table->foreignId('id_kategori')->constrained('categories', 'id');
             $table->foreignId('id_pelaporan')->constrained('input_aspirations');
-            $table->integer('feedback')->nullable();
+            $table->string('feedback', 50)->nullable();
             $table->timestamps();
         });
     }

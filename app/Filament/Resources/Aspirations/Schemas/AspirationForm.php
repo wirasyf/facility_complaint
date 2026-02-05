@@ -10,7 +10,6 @@ class AspirationForm
     {
         return $schema
             ->components([
-                //
             ]);
     }
 }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('input_aspirations', function (Blueprint $table) {
             $table->id();
-            $table->integer('nis');
+            $table->string('nis');
             $table->foreign('nis')->references('nis')->on('users');
             $table->foreignId('id_kategori')->constrained('categories');
             $table->string('lokasi', 50);

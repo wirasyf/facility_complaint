@@ -10,8 +10,7 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
+use Filament\Support\Icons\Heroicon;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -31,18 +30,25 @@ class SiswaPanelProvider extends PanelProvider
             ->authGuard('web')
             ->revealablePasswords(true)
             ->loginRouteSlug('login')
+            ->font('SN Pro')
+            ->globalSearch(false)
+            ->sidebarCollapsibleOnDesktop()
+            ->icons([
+                'panels::sidebar.collapse-button' => Heroicon::Bars3,
+                'panels::sidebar.expand-button' => Heroicon::XCircle,
+            ])
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->default(fn () => route('filament.siswa.resources.aspirations.index'))
             ->discoverResources(in: app_path('Filament/Siswa/Resources'), for: 'App\Filament\Siswa\Resources')
             ->discoverPages(in: app_path('Filament/Siswa/Pages'), for: 'App\Filament\Siswa\Pages')
             ->pages([
-                Dashboard::class,
+                //
             ])
             ->discoverWidgets(in: app_path('Filament/Siswa/Widgets'), for: 'App\Filament\Siswa\Widgets')
             ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
+                //
             ])
             ->middleware([
                 EncryptCookies::class,

@@ -7,7 +7,7 @@ use App\Filament\Siswa\Resources\Aspirations\Pages\EditAspiration;
 use App\Filament\Siswa\Resources\Aspirations\Pages\ListAspirations;
 use App\Filament\Siswa\Resources\Aspirations\Schemas\AspirationForm;
 use App\Filament\Siswa\Resources\Aspirations\Tables\AspirationsTable;
-use App\Models\Aspiration;
+use App\Models\InputAspiration;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -16,7 +16,7 @@ use Filament\Tables\Table;
 
 class AspirationResource extends Resource
 {
-    protected static ?string $model = Aspiration::class;
+    protected static ?string $model = InputAspiration::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

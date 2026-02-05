@@ -3,21 +3,17 @@
 namespace App\Filament\Resources\Students\Pages;
 
 use App\Filament\Resources\Students\StudentResource;
-use Filament\Actions\CreateAction;
-use Filament\Resources\Pages\ListRecords;
+use Filament\Actions\EditAction;
+use Filament\Resources\Pages\ViewRecord;
 
-class ListStudents extends ListRecords
+class ViewStudent extends ViewRecord
 {
     protected static string $resource = StudentResource::class;
 
-    protected function getRedirect(): string
-    {
-        return $this->getResource()::getUrl('index');
-    }
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            EditAction::make(),
         ];
     }
 }
