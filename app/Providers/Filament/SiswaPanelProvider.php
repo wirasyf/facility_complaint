@@ -17,6 +17,8 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Siswa\Auth\Login;
+use App\Filament\Siswa\Resources\Aspirations\AspirationResource;
 
 class SiswaPanelProvider extends PanelProvider
 {
@@ -26,7 +28,7 @@ class SiswaPanelProvider extends PanelProvider
             ->id('siswa')
             ->path('siswa')
             ->brandName('Siswa')
-            ->login(\App\Filament\Siswa\Auth\Login::class)
+            ->login(Login::class)
             ->authGuard('web')
             ->revealablePasswords(true)
             ->loginRouteSlug('login')
@@ -40,7 +42,7 @@ class SiswaPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->default(fn () => route('filament.siswa.resources.aspirations.index'))
+            ->default(fn () => AspirationResource::getUrl('index'))
             ->discoverResources(in: app_path('Filament/Siswa/Resources'), for: 'App\Filament\Siswa\Resources')
             ->discoverPages(in: app_path('Filament/Siswa/Pages'), for: 'App\Filament\Siswa\Pages')
             ->pages([
